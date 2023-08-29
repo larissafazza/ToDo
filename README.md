@@ -20,7 +20,7 @@ Composer
 3. Edit your .env file to your correct information on the database and mail configurations to your ocal information (the mail can be used through mailtrap for testing, it's a highly recommended tool);
 4. Access the repository path on your prompt and execute: composer install;
 5. Then, still on the prompt, generate an application key running the command: php artisan key:generate;
-6. Then, run the migrations using: php artisan migrate --seed (the --seed flag runs the laravel database seeder. In this project, it was used to generate 3 users (user1@gmail.com, user2@gmail.com and user3@gmail.com, and the password is all "12345678") and 5 tasks to help run the automatic tests.
+6. Then, run the migrations using: php artisan migrate --seed (the --seed flag runs the laravel database seeder. In this project, it was used to generate the João user profile ("email" => joao@gmail.com, "password" => "12345678") and 5 tasks to help run the automatic tests.
 7. At last, para execute the project, run the command: php artisan serve and access the url on the prompt.
 
 #### Desenvolvimento 
