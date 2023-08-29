@@ -1,0 +1,173 @@
+body {
+    background-color: #ededed;
+    font-family: sans-serif;
+}
+
+h1 {
+    padding-bottom: 12px;
+    font-size: 26px;
+}
+
+a {
+    color: white;
+    font-style: none;
+    text-decoration: none;
+}
+
+.nav-logo{
+    width: 20%;
+    height: auto;
+}
+.container-body {
+    background-color: #fbfbfb;
+    width: 70%;
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 8px;
+    margin-top: 3%;
+    border: 0.4px solid #656565;
+    padding: 48px 35px 35px 35px;
+}
+
+p{
+    font-size: 12.5px;
+    margin-top: 0px;
+}
+
+table {
+    /* box */
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px;
+}
+
+th,
+td {
+    padding: 8px;
+}
+
+th {
+    background-color: #f6f6f6;
+
+}
+
+td {
+    background-color: #f0f0f0;
+}
+
+.pointer-cursor {
+    cursor: pointer;
+}
+
+.description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+.btn-light {
+    float: right !important;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-bottom: 24px;
+    border: 0.5px solid #474242!important;
+    margin-right: 8px;
+}
+
+.btn-form a{
+    color: black;
+    text-decoration: none;
+}
+
+.icon:hover{
+    color: #41413d;
+}
+
+.open-icon{
+    color: #1071c0;
+}
+
+
+.edit-icon {
+    color: #a607e6;
+}
+
+.delete-icon {
+    color: #c24e4e;
+    cursor: pointer;
+}
+
+.undone{
+    color: #f5d547;
+}
+
+.undone:hover {
+    color: #2a8c0d ;
+}
+
+.done{
+    color: #2a8c0d;
+}
+
+.done:hover {
+    color: #f5d547 ;
+}
+
+.to-do-form {
+    background-color: #f6f6f6;
+    padding: 22px;
+    padding-bottom: 56px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-input {
+    margin: 12px 0px 28px 0px;
+    display: block;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    width: 97%;
+}
+
+select.form-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("path/to/custom-arrow-icon.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    width: 100%;
+}  
+.check-button-class{
+    margin: 0;
+    padding: 0;
+    display: inline!important;
+}
+
+.div-button-access-index{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.button-access-index{
+    float:none!important;
+    margin-top: 24px;
+    margin-bottom: 0px;
+}
