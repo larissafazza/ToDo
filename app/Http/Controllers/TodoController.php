@@ -34,40 +34,39 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('file')) {
-
-            $file_data = $request->validate([
-                'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,doc,pdf|max:2048'
-            ]);
-            if($file_data){
-                $file = $request->file('file');
-                $file->store('public/files');
-                $file_path = $file->hashName();
-            }
-        }    
-
-        $data = $request->validate([
+        $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
             'date' => 'required|date',
             'priority' => 'required|string',
-            'file_path' => $file_path,
+            'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,doc,pdf|max:2048',
             'done' => 'boolean',
             'completed' => 'nullable|date',
         ]);
-        
-        $data['user_id'] = Auth::id();
-
-
-        if (isset($data['completed'])) {
-            $data['completed'] = Carbon::parse($data['completed']);
+    
+        $file_path = null;
+    
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $file_path = $file->store('public/files');
         }
     
-        $todo = Todo::create($data);
-        
+        $data = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'date' => $request->date,
+            'priority' => $request->priority,
+            'done' => $request->filled('done'), // Convert to boolean
+            'completed' => $request->completed ? Carbon::parse($request->completed) : null,
+            'user_id' => Auth::id(),
+            'file_path' => $file_path,
+        ];
+    
+        Todo::create($data);
+
+    
         return redirect()->route('todos.index');
     }
-
     /**
      * Display the specified resource.
      */
@@ -99,28 +98,33 @@ class TodoController extends Controller
             $done_timestamp = null;
         }
         
-        if ($request->hasFile('file')) {
-
-            $file_data = $request->validate([
-                'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,doc,pdf|max:2048'
-            ]);
-            if($file_data){
-                $file = $request->file('file');
-                $file->store('public/files');
-                $file_path = $file->hashName();
-            }
-        }    
-        
-        $data = $request->validate([
+        $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
             'date' => 'required|date',
             'priority' => 'required|string',
-            'file_path' => $file_path,
+            'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,doc,pdf|max:2048',
             'done' => 'boolean',
-            'completed' => $done_timestamp,
+            'completed' => 'nullable|date',
         ]);
     
+        $file_path = $todo->file_path;
+    
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $file_path = $file->store('public/files');
+        }
+    
+        $data = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'date' => $request->date,
+            'priority' => $request->priority,
+            'done' => $request->filled('done'), // Convert to boolean
+            'completed' => $done_timestamp,
+            'user_id' => Auth::id(),
+            'file_path' => $file_path,
+        ];
 
         $todo->update($data);
         

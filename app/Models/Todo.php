@@ -16,7 +16,8 @@ class Todo extends Model
         'date',
         'priority',
         'done',
-        'completed'
+        'completed',
+        'file_path'
     ];
 
     protected $casts = [

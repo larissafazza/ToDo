@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form class="to-do-form" method="post" action="{{ route('todos.update', $todo->id) }}">
+    <form class="to-do-form" method="post" action="{{ route('todos.update', $todo->id) }}" enctype="multipart/form-data" onsubmit="return validarForm()">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -35,6 +35,18 @@
                 <option value="0" {{ $todo->done ? '' : 'selected' }}>Unfinished</option>
                 <option value="1" {{ $todo->done ? 'selected' : '' }}>Finished</option>
             </select>
+        </div>
+
+        <label class="label" required>File</label>
+        @if($todo->file_path)
+            <h2>Current File:</h2>
+            <a class="download-file-a" href="{{ Storage::url($todo->file_path) }}" target="_blank">View File</a>
+        @endif
+        <div class="form-group">
+            <h2>Change File:</h2>
+            <div class="input-group">
+            <input type="file" class="form-control" id="inputGroupFile04" name="file" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+        </div>
         </div>
         <button type="submit" name="submit" class="btn-form btn btn-light">Save</button>
         <a href="{{ route('todos.index') }}" class="btn btn-light">Cancel</a>

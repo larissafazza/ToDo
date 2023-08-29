@@ -8,6 +8,12 @@ h1 {
     font-size: 26px;
 }
 
+h2 {
+    margin-top: 16px;
+    font-size:16px;
+    font-weight: bold;
+}
+
 a {
     color: white;
     font-style: none;
@@ -170,4 +176,14 @@ select.form-input {
     float:none!important;
     margin-top: 24px;
     margin-bottom: 0px;
+}
+.download-file-a{
+    color:#41413d;
+    text-decoration: underline;
+    font-size: 14px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+.download-file-a:hover{
+    color:#1d0296;
 }

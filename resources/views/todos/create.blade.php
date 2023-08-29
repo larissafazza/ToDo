@@ -7,6 +7,7 @@
 @section('content')
     <form class="to-do-form" method="post" action="{{ route('todos.store') }}" id="create-form" enctype="multipart/form-data" onsubmit="return validarForm()">
         @csrf
+        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
         <div class="form-group">
             <label class="label">Title</label>
             <input id="form-title" class="form-input" name="title" type="text" required>

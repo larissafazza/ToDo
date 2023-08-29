@@ -41,10 +41,11 @@
             </select>
         </div>
 
+        <label class="label" required>File</label>
         @if($todo->file_path)
-            <a href="{{ Storage::url($todo->file_path) }}" target="_blank">Download File</a>
+            <br>
+            <a class="download-file-a" href="{{ Storage::url($todo->file_path) }}" target="_blank">View File</a>
         @else
-            <label class="label" required>File</label>
             <input class="form-input" name="description" type="text" value="No file added." disabled>
         @endif
         
