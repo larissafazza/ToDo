@@ -28,6 +28,7 @@ class TodoControllerTest extends TestCase
             'date' => now()->format('Y-m-d'),
             'priority' => 'high',
             'done' => false,
+            'user_id' => $user->id
         ];
 
         $response = $this->withHeaders([
@@ -51,10 +52,11 @@ class TodoControllerTest extends TestCase
 
         $this->actingAs($user);
 
-        $todo = Todo::factory()->create();
+        $userId = $user->id;
+        $todo = Todo::factory()->userId($userId)->create();
 
         $response = $this->withHeaders([
-            'X-Requested-With' => 'XMLHttpRequest', // Specify AJAX request
+            'X-Requested-With' => 'XMLHttpRequest',
         ])->getJson('todos/' . $todo->id);
 
         $response->assertStatus(200);

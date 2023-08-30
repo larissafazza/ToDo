@@ -19,12 +19,19 @@ class TodoFactory extends Factory
         return [
             'title' => fake()->title(),
             'description' => fake()->sentence(),
-            'user_id' => 1,
             'file_path' => null, 
             'date' => fake()->date(),
             'priority' => 'Not a priority',
             'done' => 0,
             'completed' => null
         ];
+    }
+    public function userId($userId)
+    {
+        return $this->state(function (array $attributes) use ($userId) {
+            return [
+                'user_id' => $userId,
+            ];
+        });
     }
 }
