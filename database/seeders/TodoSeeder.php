@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -23,6 +24,8 @@ class TodoSeeder extends Seeder
                 'priority' => 'Important',
                 'done' => 0,
                 'completed' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
             [
                 'title' => 'Organize the computer',
@@ -33,6 +36,8 @@ class TodoSeeder extends Seeder
                 'priority' => 'Not a priority',
                 'done' => 0,
                 'completed' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
             [
                 'title' => 'Send the job application',
@@ -43,6 +48,8 @@ class TodoSeeder extends Seeder
                 'priority' => 'Important',
                 'done' => 0,
                 'completed' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
             [
                 'title' => 'Work on my TCC',
@@ -53,6 +60,8 @@ class TodoSeeder extends Seeder
                 'priority' => 'Urgent',
                 'done' => 1,
                 'completed' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
             [
                 'title' => 'Plan weekend',
@@ -63,6 +72,8 @@ class TodoSeeder extends Seeder
                 'priority' => 'Important',
                 'done' => 0,
                 'completed' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
         ]);
     }

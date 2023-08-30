@@ -9,7 +9,7 @@
     Completed at: {{ $todo->completed ? $todo->completed->format('d/m/Y H:i') : 'Not completed' }}</p>
 
 
-    <form class="to-do-form" method="post" action="{{ route('todos.update', $todo->id) }}">
+    <form class="to-do-form" method="post" action="{{ route('todos.edit', $todo->id) }}">
         @csrf
         @method('PUT')
         <div class="form-group">
