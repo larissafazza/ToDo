@@ -8,9 +8,6 @@
     Last update was at: {{ $todo->updated_at->format('d/m/Y H:i') }} <br>
     Completed at: {{ $todo->completed ? $todo->completed->format('d/m/Y H:i') : 'Not completed' }}</p>
 
-
-    <form class="to-do-form" method="post" action="{{ route('todos.edit', $todo->id) }}">
-        @csrf
         <div class="form-group">
             <label class="label" required>Title</label>
             <input class="form-input" name="title" type="text" value="{{ $todo->title }}" disabled>
@@ -47,10 +44,6 @@
         @else
             <input class="form-input" name="description" type="text" value="No file added." disabled>
         @endif
-        
-        <button type="submit" name="submit" class="btn-form btn btn-light">
-            <a href="{{ route('todos.edit', $todo->id) }}">Edit</a>
-        </button>
+        <a href="{{ route('todos.edit', $todo->id) }}" class="btn btn-light">Edit</a>
         <a href="{{ route('todos.index') }}" class="btn btn-light">Cancel</a>
-    </form>
 @endsection
