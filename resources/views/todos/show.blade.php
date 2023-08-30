@@ -11,7 +11,6 @@
 
     <form class="to-do-form" method="post" action="{{ route('todos.edit', $todo->id) }}">
         @csrf
-        @method('PUT')
         <div class="form-group">
             <label class="label" required>Title</label>
             <input class="form-input" name="title" type="text" value="{{ $todo->title }}" disabled>
