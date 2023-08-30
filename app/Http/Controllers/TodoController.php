@@ -56,23 +56,30 @@ class TodoController extends Controller
             'description' => $request->description,
             'date' => $request->date,
             'priority' => $request->priority,
-            'done' => $request->filled('done'), // Convert to boolean
+            'done' => $request->filled('done'), 
             'completed' => $request->completed ? Carbon::parse($request->completed) : null,
             'user_id' => Auth::id(),
             'file_path' => $file_path,
         ];
     
-        Todo::create($data);
+        $todo = Todo::create($data);
 
-    
-        return redirect()->route('todos.index');
+        if ($request->ajax()) {
+            return response()->json(['message' => 'Todo created successfully', 'todo' => $todo], 201);
+        } else {
+            return redirect()->route('todos.index')->with('success', 'Todo created successfully');
+        }
     }
     /**
      * Display the specified resource.
      */
     public function show(Todo $todo)
     {
-        return view('todos.show',compact('todo'));
+        if (request()->wantsJson()) {
+            return response()->json(['message' => 'Todo retrieved successfully', 'todo' => $todo], 200);
+        } else {
+            return view('todos.show', ['todo' => $todo]);
+        }
     }
 
     /**
