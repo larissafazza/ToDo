@@ -17,7 +17,7 @@ Composer
 ##### Step by step:
 1. Clone the repository on your computer;
 2. Inside the main folder of the project, create the .env file; 
-3. Edit your .env file to your correct information on the database and mail configurations to your ocal information (the mail can be used through mailtrap for testing, it's a highly recommended tool);
+3. Edit your .env file to your correct information on the database and mail configurations to your local information (the mail can be used through mailtrap for testing, it's a highly recommended tool);
 4. Access the repository path on your prompt and execute: composer install;
 5. Run the composer dump-autoload command
 6. Then, still on the prompt, generate an application key running the command: php artisan key:generate;
