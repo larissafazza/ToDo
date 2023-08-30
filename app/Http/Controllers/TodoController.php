@@ -60,7 +60,7 @@ class TodoController extends Controller
             'description' => $request->description,
             'date' => $request->date,
             'priority' => $request->priority,
-            'done' => $request->filled('done'), 
+            'done' => $request->done, 
             'completed' => $request->completed ? Carbon::parse($request->completed) : null,
             'user_id' => $user_id,
             'file_path' => $file_path,
