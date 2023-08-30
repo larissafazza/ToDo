@@ -16,8 +16,9 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = auth()->user()->todos;
-    
+        $user = auth()->user();
+        $todos = $user->todos;
+
         return view('todos.index',compact('todos'));
     }
 
@@ -25,8 +26,9 @@ class TodoController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view('todos.create');
+    {   
+        $user_id =  Auth::id();
+        return view('todos.create', compact('user_id'));
     }
 
     /**
@@ -34,6 +36,8 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
+        $user_id = $request->user_id;
+        
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
@@ -58,7 +62,7 @@ class TodoController extends Controller
             'priority' => $request->priority,
             'done' => $request->filled('done'), 
             'completed' => $request->completed ? Carbon::parse($request->completed) : null,
-            'user_id' => Auth::id(),
+            'user_id' => $user_id,
             'file_path' => $file_path,
         ];
     

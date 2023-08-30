@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User;
 
 class Todo extends Model
 {
@@ -17,7 +18,8 @@ class Todo extends Model
         'priority',
         'done',
         'completed',
-        'file_path'
+        'file_path',
+        'user_id'
     ];
 
     protected $casts = [
