@@ -15,7 +15,7 @@
     <!-- Icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('img/favicon.png') }}"/>
+    <link rel="shortcut icon" type="image/png" href="{{ asset('img/logo-favicon.png') }}"/>
     <link rel="icon" href="images/icon.jpg" type="image/x-icon">
 
     <!-- Bootstrap -->
@@ -38,7 +38,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a href="{{ route('todos.index') }}" class="nav-link navbar-brand" aria-disabled="true">
-                    <img class = "nav-logo" src="https://images.squarespace-cdn.com/content/v1/5fce115a71251b5e499f96f9/339e1d0f-d9e8-4596-966d-fd83e74aa790/buzzvel-logo-dark.png" alt="Logo" class="navbar-logo">
+                    <img class = "nav-logo" src="{{ asset('img/logo.png') }}" alt="Logo" class="navbar-logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
