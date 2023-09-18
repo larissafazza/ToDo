@@ -22,6 +22,7 @@ Composer
 5. Run the composer dump-autoload command
 6. Then, still on the prompt, generate an application key running the command: php artisan key:generate;
 7. Then, run the migrations using: php artisan migrate --seed (the --seed flag runs the laravel database seeder. In this project, it was used to generate the João user profile ("email" => joao@gmail.com, "password" => "12345678") and 5 tasks to help run some manual tests.
+8. Run the node on the application: run the commands 'npm install' , then run 'npm run dev'.
 8. To run the autmatic tests, run the command php artisan test, it will test the get and the store method for the users and the to-dos requests.
 9. At last, para execute the project, run the command: php artisan serve and access the url on the prompt.
 
