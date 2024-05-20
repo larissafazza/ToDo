@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form class="to-do-form" method="post" action="{{ route('todos.update', $todo->id) }}" enctype="multipart/form-data" onsubmit="return validarForm()">
+    <form class="to-do-form" method="post" action="{{ route('todos.update', $todo->id) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
